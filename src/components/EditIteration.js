@@ -79,23 +79,30 @@ class EditIteration extends Component {
         return(
             <div className="center">
                 <section id="content">
-                    <h1>Crear Iteracion</h1>
-                    <form className="mid-form" onSubmit={this.saveIteration} >  
+                    <h1>Actualizar Iteración</h1>
+                    <form className="mid-form" onSubmit={this.saveIteration} >   
                         <input type="hidden" name="_id" defaultValue={iteration._id} ref={this.idRef} onChange={this.changeState} ></input>
                         <input type="hidden" name="videogameId" defaultValue="10" ref={this.videogameIdRef} onChange={this.changeState} ></input>
-                        <div className="form-group">
-                            <label htmlFor="name">Nombre</label>
-                            <input type="text" name="name" defaultValue={iteration.name} ref={this.nameRef} onChange={this.changeState}></input>
+                        <div className="form-group row">
+                            <label htmlFor="name" className="col-sm-2 col-form-label">Nombre</label>
+                            <div className="col-sm-10">
+                                <input type="text" name="name" defaultValue={iteration.name} ref={this.nameRef} onChange={this.changeState}  className="form-control"></input>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="description">Descripción</label>
-                            <input type="text" name="description" defaultValue={iteration.description} ref={this.descriptionRef} onChange={this.changeState}></input>
+                        <div className="form-group row">
+                            <label htmlFor="description" className="col-sm-2 col-form-label">Descripción</label>
+                            <div className="col-sm-10">
+                                <input type="text" name="description" defaultValue={iteration.description} ref={this.descriptionRef} onChange={this.changeState}  className="form-control"></input>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="betaVerificator">Verificador Beta</label>
-                            <input type="number" name="betaVerificator" defaultValue={iteration.betaVerificator} ref={this.betaVerifRef} onChange={this.changeState}></input>
+                        <div className="form-group row">
+                            <label htmlFor="betaVerificator" className="col-sm-2 col-form-label">Verificador Beta</label>
+                            <div className="col-sm-10">
+                                <input type="number" name="betaVerificator" defaultValue={iteration.betaVerificator} ref={this.betaVerifRef} onChange={this.changeState}  className="form-control"></input>
+                            </div>
                         </div>
                         <input type="submit" value="Guardar" className="btn btn-success" />
+
                     </form>
                 </section>
             </div>

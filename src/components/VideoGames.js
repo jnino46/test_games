@@ -31,15 +31,15 @@ export default class VideoGames extends Component {
                     <td>{it.name}</td>
                     <td>{it.description}</td>
                     <td>
-                        <Link to={'/iteration/read'}>Iteraciones</Link>
+                        <Link to={'/iteration/read'} className="btn btn-info" type="button">Iteraciones</Link>
                     </td>
                 </tr>
             );
         });
         return(
             <div id="iterations">
-                <Link to={'/videogame/create'}>Crear Video Juego</Link>
-                <table border="1">
+                <Link to={'/videogame/create'} className="btn btn-primary" type="button">Crear Video Juego</Link>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Nombre</th>

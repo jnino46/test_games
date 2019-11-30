@@ -66,22 +66,29 @@ class CreateIteration extends Component {
                     <h1>Crear Iteracion</h1>
                     <form className="mid-form" onSubmit={this.saveIteration} >  
                         <input type="hidden" name="videogameId" value="10" ref={this.videogameIdRef} onChange={this.changeState} ></input>
-                        <div className="form-group">
-                            <label htmlFor="name">Nombre</label>
-                            <input type="text" name="name" ref={this.nameRef} onChange={this.changeState}></input>
+                        <div className="form-group row">
+                            <label htmlFor="name" className="col-sm-2 col-form-label">Nombre</label>
+                            <div className="col-sm-10">
+                                <input type="text" name="name" ref={this.nameRef} onChange={this.changeState}  className="form-control"></input>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="description">Descripción</label>
-                            <input type="text" name="description" ref={this.descriptionRef} onChange={this.changeState}></input>
+                        <div className="form-group row">
+                            <label htmlFor="description" className="col-sm-2 col-form-label">Descripción</label>
+                            <div className="col-sm-10">
+                                <input type="text" name="description" ref={this.descriptionRef} onChange={this.changeState}  className="form-control"></input>
+                            </div>
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="betaVerificator">Verificador Beta</label>
-                            <input type="number" name="betaVerificator" ref={this.betaVerifRef} onChange={this.changeState}></input>
+                        <div className="form-group row">
+                            <label htmlFor="betaVerificator" className="col-sm-2 col-form-label">Verificador Beta</label>
+                            <div className="col-sm-10">
+                                <input type="number" name="betaVerificator" ref={this.betaVerifRef} onChange={this.changeState}  className="form-control"></input>
+                            </div>
                         </div>
                         <input type="submit" value="Guardar" className="btn btn-success" />
                     </form>
                 </section>
             </div>
+
         )
     }
 }
