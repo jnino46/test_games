@@ -7,6 +7,7 @@ import VideoGames from './components/VideoGames';
 import HeaderNav from "./components/HeaderNav";
 import DetailIteration from "./components/DetailIteration";
 import CreateVideoGame from './components/CreateVideoGame';
+import CreateAspect from './components/CreateAspect';
 
 
 class Router extends Component {
@@ -22,6 +23,7 @@ class Router extends Component {
                     <Route exact path="/iteration/view/:id" component={DetailIteration}/>
                     <Route exact path="/iteration/create" component ={CreateIteration} />
                     <Route exact path="/videogame/create" component ={CreateVideoGame} />
+                    <Route exact path="/aspect/create/:id" component ={CreateAspect} />
                 </Switch>
             </BrowserRouter>
         );

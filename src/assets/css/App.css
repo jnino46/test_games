@@ -25,3 +25,12 @@
 .btn {
   margin: 4px;
 }
+
+.card{
+  width: 18rem;
+}
+
+#aspects, #iterations {
+  text-align: left;
+  padding: 12px;
+}

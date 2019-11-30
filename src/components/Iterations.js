@@ -81,6 +81,7 @@ export default class Iterations extends Component {
         });
         return(
             <div id="iterations">
+                <h1>Listado de Iteraciones</h1>
                 <Link to={'/iteration/create'} className="btn btn-primary" type="button">Crear Iteración</Link>
                 <table  className="table">
                     <thead>
