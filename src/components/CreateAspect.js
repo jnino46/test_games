@@ -60,7 +60,7 @@ class CreateAspect extends Component {
     }
     render(){
         if(this.state.status === 'success'){
-            return <Redirect to="/iteration/read"></Redirect>;
+            return <Redirect to={"/iteration/view/"+this.iterationId}></Redirect>;
         }
         return(
             <div className="center">

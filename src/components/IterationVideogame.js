@@ -73,7 +73,7 @@ export default class IterationVideogame extends Component {
         });
         return(
             <div id="iterations">
-                <Link to={'/iteration/create/'+this.videogameId} className="btn btn-primary" type="button">Video Juego</Link>
+                <Link to={'/videogames/read'} className="btn btn-primary" type="button">Video Juegos</Link>
                 <h1>Listado de Iteraciones</h1>
                 <Link to={'/iteration/create/'+this.videogameId} className="btn btn-primary" type="button">Crear Iteración</Link>
                 <table  className="table">

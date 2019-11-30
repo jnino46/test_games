@@ -51,6 +51,7 @@ class DetailIteration extends Component {
         });
         return (
             <div>
+                <Link to={'/iteration/readbyvideogame/'+this.state.iteration.videogameId} className="btn btn-primary" type="button">Volver</Link>
                 <h1>Detalle Iteracion</h1>
                 <div className="card" >
                     <div className="card-body">

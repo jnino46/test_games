@@ -19,6 +19,7 @@ class Router extends Component {
                 <HeaderNav />
                 <Switch>
                     <Route exact path="/" component={VideoGames} />
+                    <Route exact path="/videogames/read" component={VideoGames} />
                     <Route exact path="/iteration/read"  component={Iterations} />
                     <Route exact path="/iteration/edit/:id"  component={EditIteration} />
                     <Route exact path="/iteration/view/:id" component={DetailIteration}/>
