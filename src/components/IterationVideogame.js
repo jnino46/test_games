@@ -35,21 +35,12 @@ export default class IterationVideogame extends Component {
           })
           .then((willDelete) => {
             if (willDelete) {
-                var it = {
-                    "iterationId": id
-                };
-                axios.delete(this.url + "iteration/delete", 
-                    {headers: {
-                        "Content-Type": "application/json"
-                    },
-                    data: it
-                    }
-                )
+                axios.delete(this.url + "iteration/delete?iterationId="+id)
                 .then(res =>{
                     console.log(res.data);
                     this.setState({
                         iterations: res.data,
-                        status: 'success'
+                        status: 'delete'
                     });
                     swal("Iteracion Eliminada Correctamente", {
                       icon: "delete",
@@ -82,6 +73,7 @@ export default class IterationVideogame extends Component {
         });
         return(
             <div id="iterations">
+                <Link to={'/iteration/create/'+this.videogameId} className="btn btn-primary" type="button">Video Juego</Link>
                 <h1>Listado de Iteraciones</h1>
                 <Link to={'/iteration/create/'+this.videogameId} className="btn btn-primary" type="button">Crear Iteración</Link>
                 <table  className="table">
