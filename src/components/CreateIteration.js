@@ -9,6 +9,7 @@ import swal from 'sweetalert';
 class CreateIteration extends Component {
 
     url = Global.url;
+    videogameId = null
 
     nameRef = React.createRef();
     descriptionRef = React.createRef();
@@ -18,6 +19,10 @@ class CreateIteration extends Component {
     state = {
         iteration: {},
         status: null
+    }
+
+    componentWillMount(){
+        this.videogameId = this.props.match.params.id;
     }
 
     changeState = () => {
@@ -58,14 +63,14 @@ class CreateIteration extends Component {
     }
     render(){
         if(this.state.status === 'success'){
-            return <Redirect to="/"></Redirect>;
+            return <Redirect to={"/iteration/readbyvideogame/"+this.videogameId}></Redirect>;
         }
         return(
             <div className="center">
                 <section id="content">
                     <h1>Crear Iteracion</h1>
                     <form className="mid-form" onSubmit={this.saveIteration} >  
-                        <input type="hidden" name="videogameId" value="10" ref={this.videogameIdRef} onChange={this.changeState} ></input>
+                        <input type="hidden" name="videogameId" defaultValue={this.videogameId} ref={this.videogameIdRef} onChange={this.changeState} ></input>
                         <div className="form-group row">
                             <label htmlFor="name" className="col-sm-2 col-form-label">Nombre</label>
                             <div className="col-sm-10">

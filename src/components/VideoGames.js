@@ -31,7 +31,7 @@ export default class VideoGames extends Component {
                     <td>{it.name}</td>
                     <td>{it.description}</td>
                     <td>
-                        <Link to={'/iteration/read'} className="btn btn-info" type="button">Iteraciones</Link>
+                        <Link to={'/iteration/readbyvideogame/'+it._id} className="btn btn-info" type="button">Iteraciones</Link>
                     </td>
                 </tr>
             );

@@ -4,18 +4,19 @@ import Global from '../Global';
 import { Link, Redirect } from "react-router-dom";
 import swal from 'sweetalert';
 
-export default class Iterations extends Component {
+export default class IterationVideogame extends Component {
     url = Global.url;
     state = {
         iterations: [],
         status: null
     }
-
+    videogameId = null;
     componentWillMount(){
-        this.getIterations();
+        this.videogameId = this.props.match.params.id;
+        this.getIterations(this.videogameId);
     }
-    getIterations = () => {
-        axios.get(this.url + "iteration/read")
+    getIterations = (id) => {
+        axios.get(this.url + "iteration/readByVideogameId?videogameId="+id)
             .then(res =>{
                 console.log(res.data);
                 this.setState({
@@ -82,7 +83,7 @@ export default class Iterations extends Component {
         return(
             <div id="iterations">
                 <h1>Listado de Iteraciones</h1>
-                {/** <Link to={'/iteration/create'} className="btn btn-primary" type="button">Crear Iteración</Link> */}
+                <Link to={'/iteration/create/'+this.videogameId} className="btn btn-primary" type="button">Crear Iteración</Link>
                 <table  className="table">
                     <thead>
                         <tr>
@@ -100,3 +101,4 @@ export default class Iterations extends Component {
         );
     }
 }
+
