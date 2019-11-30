@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Global from '../Global';
 import { Redirect } from "react-router-dom";
+import swal from 'sweetalert';
 
 //validacion de formulario y alertas
 
@@ -10,11 +11,11 @@ class EditIteration extends Component {
     url = Global.url;
 
     iterationId = null;
+    videogameId = null;
     nameRef = React.createRef();
     descriptionRef = React.createRef();
     betaVerifRef = React.createRef();
     idRef = React.createRef();
-    videogameIdRef = React.createRef();
 
     state = {
         iteration: {},
@@ -28,7 +29,8 @@ class EditIteration extends Component {
                 console.log(res.data);
                 this.setState({
                     iteration: res.data.filter(it => it._id == id)[0],
-                })
+                });
+                this.videogameId = this.state.iteration.videogameId;
             });
     }
 
@@ -44,7 +46,6 @@ class EditIteration extends Component {
                 name: this.nameRef.current.value,
                 description: this.descriptionRef.current.value,
                 betaVerificator: this.betaVerifRef.current.value,
-                videogameId: this.videogameIdRef.current.value
             }
         });
         //console.log(this.state);
@@ -59,7 +60,12 @@ class EditIteration extends Component {
                     this.setState({
                         iteration: res.data,
                         status: 'success'
-                    })
+                    });
+                    swal(
+                        'Iteración',
+                        'Iteración actualizada correctamente',
+                        'success'
+                    )
                 }
                 else {
                     this.setState({
@@ -72,7 +78,7 @@ class EditIteration extends Component {
     render(){
         console.log(this.state);
         if(this.state.status === 'success'){
-            return <Redirect to="/"></Redirect>;
+            return <Redirect to={"/iteration/readbyvideogame/"+this.videogameId}></Redirect>;
         }
         var iteration = this.state.iteration;
         //console.log(iteration);
@@ -82,7 +88,6 @@ class EditIteration extends Component {
                     <h1>Actualizar Iteración</h1>
                     <form className="mid-form" onSubmit={this.saveIteration} >   
                         <input type="hidden" name="_id" defaultValue={iteration._id} ref={this.idRef} onChange={this.changeState} ></input>
-                        <input type="hidden" name="videogameId" defaultValue="10" ref={this.videogameIdRef} onChange={this.changeState} ></input>
                         <div className="form-group row">
                             <label htmlFor="name" className="col-sm-2 col-form-label">Nombre</label>
                             <div className="col-sm-10">
