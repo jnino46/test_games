@@ -43,23 +43,6 @@ export default class Iterations extends Component {
             });
     }
     render(){
-        var table4 = () => {
-            return(
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Descripcion</th>
-                            <th>Verificador Beta</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {listIteration}
-                    </tbody>
-                </table>
-            )
-        }
         var listIteration = this.state.iterations.map((it) =>{
             return(
                 <tr key={it._id}>
